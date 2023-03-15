@@ -139,3 +139,4 @@ MESSAGE_TAGS={
 
 # Activate Django-Heroku
 django_heroku.settings(locals())
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
