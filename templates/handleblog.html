@@ -1,0 +1,31 @@
+{% extends 'basic.html' %}
+
+{% block title %} Blog {% endblock title %}
+
+{% block body %}
+{% load static %}
+
+<section id="services" class="services">
+    <div class="section-title">
+        <h2> Welcome to my Blog </h2>
+    </div>
+    
+
+    
+        {% for post in posts reversed  %}
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                <div class="row">
+           
+            <div class="icon"><i class="bi bi-briefcase"></i></div>
+            <h4 class="title"><a href="">{{post.title}}</a></h4>
+            <p class="description">{{post.description}}</p>
+            <h6>Posted By: <b>{{post.authname}}</b></h6>
+            <h6>Posted on: <b>{{post.timeStamp}}</b></h6>
+            </div>
+        {% endfor %}
+
+    
+    </div>
+  </section>
+
+{% endblock body %}

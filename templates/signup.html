@@ -1,0 +1,70 @@
+{% extends 'basic.html' %}
+
+{% block title %} SignUp {% endblock title %}
+{% block stylecss %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock stylecss %}
+
+{% block body %}
+
+<div class="container mt-4 p-2">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+
+        <div class="col-md-4">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3 class="text-white bg-dark text-center p-3"> SignUp Here</h3>
+
+            {% for message in messages  %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}
+
+            <div class="card p-2 ">
+                <form action="/auth/signup/" method="post"> {% csrf_token %}
+                <div class="form-group">
+                    <span><i class="bx bx-envelope"></i> E-mail</span>
+                    <input type="text" class="form-control mb-3" name = "email" required>
+                </div>
+
+                <div class="form-group">
+                    <span><i class="fas fa-key"></i> Password</span>
+                    <input type="password" class="form-control mb-3"name = "pass1" required>
+                </div>
+
+                <div class="form-group">
+                    <span><i class="fas fa-lock"></i> Confirm Password</span>
+                    <input type="password" class="form-control mb-3" name = "pass2" required>
+                </div>
+
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-dark" type="submit">SignUp</button>
+           
+            
+            <br>
+            Already user? <a href="/auth/login/">Login</a>
+            </div>
+        </form>
+       
+        </div>
+        <div class="col-md-4">
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock body %}
